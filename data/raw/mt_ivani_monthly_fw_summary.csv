@@ -1,0 +1,9 @@
+period_label,period_start,period_end,total_fw_tons,avg_fw_tons_per_day,source_image
+Januari 2021,2021-01-01,2021-01-31,88,2.83871,1.png
+February 2021,2021-02-01,2021-02-28,88,3.142857,2.png
+Maret 2021,2021-03-01,2021-03-31,67,2.913043,3.png
+April 2021,2021-04-01,2021-04-30,92,3.066667,4.png
+Mei 2021,2021-05-01,2021-05-31,88,2.8387097,5.png
+Juni 2021,2021-06-01,2021-06-30,68,2.8333333,6.png
+Juli 2021,2021-07-01,2021-07-31,88,2.8387097,7.png
+Agustus 2021 (kismi - ay sonuna kadar veri yok),2021-08-01,2021-08-12,38,3.1666667,8.png

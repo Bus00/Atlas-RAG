@@ -1,0 +1,64 @@
+report_date,event_type,equipment_hint,event_text,source_image
+2021-01-03,bunker,ME lube oil (LO),"LO 157 sonu / LO 158 basi: LO degisimi oncesi 9.875 L, sonrasi 9.820 L",1.png
+2021-01-04,bunker,cargo,"Tahliye (discharge) oncesi: 8.510 L, tahliye sonrasi: 7.640 L",1.png
+2021-01-06,maintenance,AE (Auxiliary Engine) 2,"Pergantian Oli AE 2 = 56 Liter (AE 2 yag degisimi)",1.png
+2021-01-07,bunker,Fresh Water,"Supply FW 50 tons, sudah terisi sampai jam 12 = 35 tons (50 ton taze su ikmali planlandi, saat 12 itibariyle 35 ton doldurulmus)",1.png
+2021-01-09,bunker,ME lube oil (LO),"LO 158 sonu / LO 159 basi: degisim oncesi 5.715 L, sonrasi 5.670 L",1.png
+2021-01-11,bunker,cargo,"Tahliye oncesi: 33.755 Ltr, tahliye sonrasi: 32.870 L",1.png
+2021-01-15,bunker,ME lube oil (LO),"LO 159 sonu / LO 160 basi: degisim oncesi 31.005 L, sonrasi 30.970 L",1.png
+2021-01-16,bunker,cargo,"Tahliye oncesi: 29.505 L",1.png
+2021-01-17,bunker,cargo,"Tahliye sonrasi: 28.905 L",1.png
+2021-01-21,bunker,ME lube oil (LO),"LO 160 sonu / LO 161 basi: degisim oncesi 26.740 L, sonrasi 26.705 L",1.png
+2021-01-22,bunker,cargo,"Tahliye oncesi: 25.065 L, tahliye sonrasi: 24.185 L",1.png
+2021-01-23,bunker,Fresh Water,"Supply FW 50 tons (50 ton taze su ikmali)",1.png
+2021-01-27,bunker,ME lube oil (LO),"LO 161 sonu / LO 162 basi: degisim oncesi 22.135 L, sonrasi 22.095 L",1.png
+2021-01-28,bunker,cargo,"Tahliye (discharge) oncesi: 20.575 Ltr",1.png
+2021-01-29,bunker,cargo,"Tahliye sonrasi: 19.675 Ltr",1.png
+2021-02-01,maintenance,AE (Auxiliary Engine) 1,"Ganti oli AE 1 = 54 L (AE 1 yag degisimi)",2.png
+2021-02-02,bunker,ME lube oil (LO),"LO 162 sonu / LO 163 basi: degisim oncesi 17.825 L, sonrasi 17.785 L; sefer notu: Sail Priok-Pabelokan (saat bilgisi goruntude kesik)",2.png
+2021-02-04,bunker,cargo,"Tahliye oncesi: 16.210 L, sonrasi: 15.265 L; sefer notu: Sail Pabelokan-Priok (goruntude kesik)",2.png
+2021-02-08,bunker,Fresh Water / ME lube oil (LO),"Supply FW 30 tons; LO 163 sonu / LO 164 basi: degisim oncesi 13.214 L",2.png
+2021-02-09,voyage,-,"LO 164 sonrasi 13.174 L; sefer notu: Sail Priok-Pabelokan Pk. 01.42 (goruntude kesik)",2.png
+2021-02-10,bunker,cargo,"Tahliye oncesi: 11.590 L, sonrasi: 10.650 L; sefer notu: Sail Pabelokan-Priok Pk. 12.00 (goruntude kesik)",2.png
+2021-02-11,bunker,Fresh Water,"Supply FW 20 tons",2.png
+2021-02-14,bunker,ME lube oil (LO),"LO 164 sonu / LO 165 basi: degisim oncesi 8.710 L, sonrasi 8.675 L; sefer notu: Sail Priok-Pabelokan Pk. 20.15 (goruntude kesik)",2.png
+2021-02-15,bunker,cargo,"Tahliye oncesi: 6.980 L",2.png
+2021-02-16,bunker,cargo,"Tahliye sonrasi: 6.030 L; sefer notu: Sail Pabelokan-Priok Pk. 19.42 (goruntude kesik)",2.png
+2021-02-20,bunker,ME lube oil (LO) / bunker,"LO 165 sonu / LO 166 basi: degisim oncesi 4.075 L, sonrasi 4.035 L; bunker oncesi 4.035 L (bunker sonrasi degeri goruntude kesik)",2.png
+2021-02-22,bunker,cargo,"Tahliye oncesi: 32.160 L, sonrasi: 31.285 L; sefer notu: Sail Pabelokan-Priok Pk. 21.48 (goruntude kesik)",2.png
+2021-02-25,bunker,Fresh Water,"Supply FW 20 tons",2.png
+2021-02-26,bunker,Fresh Water / ME lube oil (LO),"Supply FW 30 tons; LO 166 sonu / LO 167 basi: oncesi 29.307 L",2.png
+2021-02-27,bunker,cargo,"Sonrasi: 29.257 L, tahliye oncesi: 27.691 L; sefer notu: Sail Priok-Pabelokan Pk. 08.00 LT (goruntude kesik)",2.png
+2021-02-28,bunker,cargo,"Tahliye sonrasi: 27.011 L; sefer notu: Sail Pabelokan-Priok Pk. 14.30 LT (goruntude kesik)",2.png
+2021-03-13,bunker,Fresh Water,"Supply FW 50 Tons",3.png
+2021-03-18,maintenance,AE (Auxiliary Engine) 1,"ganti oli AE 1 = 56 L (AE 1 yag degisimi)",3.png
+2021-03-25,bunker,Fresh Water / ME lube oil (LO),"Supply FW = 30 tons; LO 171 sonu / LO 172 basi: oncesi 8.155 L, sonrasi 8.120 L",3.png
+2021-03-29,maintenance,AE (Auxiliary Engine) 2,"Ganti oli AE 2 = 56 liter (AE 2 yag degisimi)",3.png
+2021-04-20,other,-,"Supply Oli 2 drum meditran SAE ve Supply Rantai galv uk 16mm 3 bag ve segel 20 pcs (2 varil yag ve 16mm galvanizli zincir + baglanti pimi ikmali)",4.png
+2021-04-21,other,personel (mürettebat),"HO bosun, masinis III ve kapten (mürettebat degisimi: lostromo, 3. makinist ve kaptan)",4.png
+2021-04-22,bunker,Fresh Water,"Supply FW 50 tons",4.png
+2021-04-24,maintenance,AE (Auxiliary Engine),"Pergantian oli AE sebanyak 56 Liter (AE yag degisimi)",4.png
+2021-05-06,other,personel (mürettebat),"HO ve Crew change CO Ivani (Kaptan Yardimcisi/Chief Officer mürettebat degisimi)",5.png
+2021-05-08,bunker,Fresh Water,"Supply 50 tons",5.png
+2021-05-10,failure,gövde / dümen (grounding),"Laporan Nahkoda: kapal kandas Pk.11.16 LT (Kaptan raporu: gemi karaya oturdu, saat 11.16)",5.png
+2021-05-11,other,STS operasyonu,"STS CB NMS Accomplish = 10 KL (Ship-to-Ship transfer tamamlandi, 10 KL)",5.png
+2021-05-12,other,STS operasyonu,"STS Magelang, 20 kl, discharge islemleri kaydedildi",5.png
+2021-05-14,other,cargo,"05.00: Completed discharging; 07:42 Full Away; 15:48 FWE (tahliye tamamlandi, tam yol/hazir bekleme kayitlari)",5.png
+2021-05-15,failure,gövde / makine dümen sistemi,"repair lambung dan repair FM: check handle maju mundur (govde onarimi ve dumen/manevra kolu ileri-geri kontrolu yapildi)",5.png
+2021-05-18,other,cargo transfer,"MT.IVANI STS CB PRISAI, BD 598.492 Ltr, 15.148 Ltr, AD5 583.474 Ltr",5.png
+2021-05-19,other,cargo transfer,"MT. Ivani sandar jetty crane patok shore tank, BD 318.557 Ltr, shore tank kayitlari",5.png
+2021-05-25,bunker,Fresh Water,"Supply 50 tons",5.png
+2021-05-27,other,cargo transfer,"Sandar Jetty Pabelokan transfer To Overcomer 25.222 L, Pk. 10.48 - Pk. 11.4x (goruntude kesik)",5.png
+2021-06-12,bunker,Fresh Water,"supply 40 tons",6.png
+2021-06-13,bunker,Fresh Water,"Supply 10 tons",6.png
+2021-06-16,other,cargo,"LO 186 sonu / LO 187 basi 25.244 / sonrasi 25.209; tahliye oncesi 23.963 L, tahliye sonrasi 23.103 L",6.png
+2021-06-18,other,ME lube oil,"supply oli medripal 412, 4 drum (4 varil ME yagi ikmali)",6.png
+2021-06-26,bunker,Fresh Water,"Supply FW 50 tons",6.png
+2021-07-01,other,vetting/denetim,"Vetting PSA (Port State Authority denetimi)",7.png
+2021-07-11,other,-,"Pengetesan Ais (AIS test)",7.png
+2021-07-12,maintenance,AE (Auxiliary Engine) 1,"Pergantian oli 56 liter AE 1 (AE 1 yag degisimi)",7.png
+2021-07-13,bunker,Fresh Water,"Supply FW 50 tons",7.png
+2021-07-31,bunker,Fresh Water,"supply FW 50 tons",7.png
+2021-08-05,maintenance,AE (Auxiliary Engine),"Pergantian oli AE (yag degisimi, AE ROB dususu ile uyumlu)",8.png
+2021-08-12,other,ME lube oil,"Supply Oli 4 drum meditran audit inventory (4 varil ME yagi ikmali, envanter denetimi notu)",8.png
+2021-08-17,bunker,Fresh Water,"Supply FW 50 tons",8.png

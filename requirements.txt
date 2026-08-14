@@ -1,0 +1,29 @@
+# Bu dosyadaki TÜM paketler, projedeki .py dosyalarının import ifadeleri
+# taranarak (ast modülüyle, elle değil) tespit edilmiştir. Aşağıdaki 7 paket
+# dışında hiçbir üçüncü parti kütüphane kullanılmıyor.
+#
+# NOT: Sürüm numaraları alt sınır (>=) olarak verildi, tam sabitleme (==)
+# yapılmadı. Tam sürüm sabitleme, o sürüm sizin Python/işletim sistemi
+# kombinasyonunuzda mevcut değilse "pip install" işleminin TAMAMEN
+# başarısız olmasına ve hiçbir paketin kurulmamasına yol açabiliyor.
+
+# --- Veritabanı ---
+psycopg[binary]>=3.2
+python-dotenv>=1.0
+
+# --- Embedding (lokal) ---
+# NOT: sentence-transformers, torch'u bağımlılık olarak indirir (büyük, ~2-3 GB).
+# Apple Silicon'da CPU/MPS ile çalışır, ayrı bir kurulum gerekmez.
+sentence-transformers>=3.0
+
+# --- Vector DB (lokal) ---
+chromadb>=0.5
+
+# --- LLM (Ollama HTTP API için) ---
+requests>=2.31
+
+# --- Arayüz ---
+streamlit>=1.38
+
+# --- Test ---
+pytest>=8.0
