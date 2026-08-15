@@ -1,4 +1,4 @@
-# Maritime RAG — V1
+# ATLAS- RAG (V1)
 
 MT IVANI gemisinin Noon Report kayıtları üzerinde çalışan, **tamamen lokal**
 (kurulumdan sonra internetsiz) bir RAG (Retrieval-Augmented Generation)
