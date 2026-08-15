@@ -27,14 +27,14 @@ bilinen sınırlamalar için `data/raw/README_DATA_NOTES.md` dosyasına bakın
 ## 1) Python ortamı
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 cd maritime-rag
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 Hatasız kurulum biter. (sentence-transformers ile birlikte torch da inecek,
 birkaç GB indirme olabilir — internet gerekir, bu adım tek seferliktir.)
 ```
@@ -49,24 +49,24 @@ içindeki `==X.Y.Z` kısımlarını silip tekrar deneyin (`pip install -r requir
 Zaten kurulu bir PostgreSQL'iniz yoksa:
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 brew install postgresql@16
 brew services start postgresql@16
 createdb maritime_rag
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 Hata almadan "maritime_rag" adında boş bir veritabanı oluşur.
 ```
 
 `.env` dosyasını oluşturun ve gerekirse kullanıcı adı/şifreyi güncelleyin:
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 cp .env.example .env
 # .env içindeki PG_USER / PG_PASSWORD değerlerini kendi kurulumunuza göre düzenleyin
 # (Homebrew ile kurulumda genellikle PG_USER=<mac kullanıcı adınız>, şifre boş olabilir)
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 .env dosyası proje kök dizininde oluşur.
 ```
 
@@ -75,10 +75,10 @@ BEKLENEN:
 ## 3) Veritabanı migration'larını çalıştırma
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 python -m database.run_migrations
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 "[OK] Migration çalıştırıldı: .../01_lookup_tables.sql"
 "[OK] Migration çalıştırıldı: .../02_core_entities.sql"
 "[OK] Migration çalıştırıldı: .../03_seed_reference_data.sql"
@@ -88,10 +88,10 @@ BEKLENEN:
 Doğrulama (opsiyonel):
 
 ```
-YAP:
+YAPMANZ GEREKEN:
 psql maritime_rag -c "SELECT name FROM vessel;"
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
  name
 ----------
  MT IVANI
@@ -102,10 +102,10 @@ BEKLENEN:
 ## 4) Noon Report verisini PostgreSQL'e yükleme (ingestion)
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 python -m ingestion.load_noon_reports
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 "[OK] 231 noon_report kaydı yazıldı/güncellendi."
 "[OK] ~60 noon_report_event kaydı yazıldı (... atlandı)."
 "[OK] 8 aylık özet chunk'ı yazıldı."
@@ -117,12 +117,12 @@ BEKLENEN:
 ## 5) Ollama kurulumu ve model indirme
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 brew install ollama
 brew services start ollama
 ollama pull qwen2.5:7b-instruct
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 Model indirilir (~4-5 GB, internet gerekir, tek seferlik).
 "ollama list" komutuyla modelin listede göründüğünü doğrulayabilirsiniz.
 ```
@@ -130,10 +130,10 @@ Model indirilir (~4-5 GB, internet gerekir, tek seferlik).
 Test:
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 ollama run qwen2.5:7b-instruct "merhaba, çalışıyor musun?"
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 Modelden kısa bir Türkçe/İngilizce cevap gelir.
 ```
 
@@ -150,10 +150,10 @@ bge-m3 ile embed eder ve ChromaDB'ye yazar. **İlk çalıştırmada embedding
 modeli HuggingFace'ten indirilir (~2 GB, internet gerekir, tek seferlik).**
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 python -m rag.build_index
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 "[OK] ~63 yeni event chunk'ı document_chunk tablosuna yazıldı."
 "[embed] ~71 chunk embed edilecek..."
 "[OK] Toplam ~71 chunk embed edilip ChromaDB'ye yazıldı."
@@ -167,10 +167,10 @@ buraya kalıcı olarak yazılır, tekrar hesaplanmasına gerek kalmaz.
 ## 7) Testleri çalıştırma
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 pytest tests/ -v
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 tests/test_csv_loader.py       -> hepsi PASSED (DB gerektirmez)
 tests/test_chunker.py          -> hepsi PASSED (DB gerektirmez)
 tests/test_structured_lookup.py -> hepsi PASSED (sadece psycopg kurulu olmalı, DB bağlantısı gerekmez)
@@ -188,10 +188,10 @@ tests/test_pipeline_safety.py  -> hepsi PASSED (mock'larla, gerçek Ollama/Chrom
 ## 8) Streamlit arayüzünü başlatma
 
 ```
-YAP:
+YAPMANIZ GEREKEN:
 streamlit run app/streamlit_app.py
 
-BEKLENEN:
+BEKLENEN ÇIKTI:
 Tarayıcıda http://localhost:8501 açılır. Sol panelde PostgreSQL/ChromaDB/
 Ollama durumlarının hepsi ✅ olmalı. Soru kutusuna örnek bir soru yazıp
 deneyebilirsiniz:
@@ -242,11 +242,8 @@ maritime-rag/
 └── README.md
 ```
 
-## V1 kapsamı DIŞINDA olanlar (bilinçli olarak eklenmedi)
-
-Tıbbi/sağlık modülleri, savaş/afet senaryoları, predictive maintenance,
-gelişmiş arıza tahmini, mobil uygulama, production deployment, kullanıcı
-authentication, mikroservis mimarisi. Bunlar V2/V3 konularıdır.
+## V1 kapsamı dışında olanlar
+V1 kapsamında yer almayan özellikler ve modüller, projenin ilerleyen versiyonlarında zaman içerisinde geliştirilmeye ve sisteme eklenmeye devam edecektir.
 
 ## Bilinen sınırlamalar (V1)
 
@@ -261,3 +258,12 @@ authentication, mikroservis mimarisi. Bunlar V2/V3 konularıdır.
 - Retrieval eşiği (`DISTANCE_THRESHOLD` in `rag/pipeline.py`) sabit kodlanmış
   bir başlangıç değeridir; gerçek kullanımda çok fazla "bulunamadı" cevabı
   alırsanız bu değeri biraz yükseltmeyi deneyebilirsiniz.
+
+## Neden MT IVANI?
+
+  V1 kapsamında uygulama başlangıçta farklı bir kullanım alanına yönelik RAG çözümü olarak tasarlanmıştır.
+  Ancak yeterli ve güvenilir veri setlerine erişimin sınırlı olması nedeniyle, 
+  kullanılabilir ve gerçek bir veri kaynağı olarak
+  MT IVANI gemisine ait Ocak–Ağustos 2021 dönemindeki noon report verileri tercih edilmiştir.
+  Bu doğrultuda V1, mevcut verilerin sağladığı imkânlar doğrultusunda denizcilik sektörüne odaklanılarak geliştirilmiştir. 
+  Projenin kapsamı ve kullanım alanları ilerleyen versiyonlarda zaman içerisinde genişletilecektir.
