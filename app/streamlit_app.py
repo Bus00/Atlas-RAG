@@ -12,9 +12,9 @@ from llm.ollama_client import OllamaClient  # noqa: E402
 from rag.pipeline import RagPipeline  # noqa: E402
 from vectorstore.chroma_store import ChromaStore  # noqa: E402
 
-# --------------------------------------------------------------------------
-# Sayfa yapılandırması — dosyadaki İLK ve TEK Streamlit komutu olmalı.
-# --------------------------------------------------------------------------
+
+# Sayfa yapılandırması
+
 st.set_page_config(page_title="ATLAS — Your Assistant", page_icon="◈", layout="centered")
 
 ASSISTANT_SYMBOL = "◈"
@@ -28,9 +28,9 @@ EXAMPLE_QUESTIONS = [
 ]
 
 
-# --------------------------------------------------------------------------
-# Stil (minimal / koyu tema)
-# --------------------------------------------------------------------------
+
+# Tema
+
 def inject_css() -> None:
     st.markdown(
         """
@@ -188,9 +188,9 @@ def inject_css() -> None:
     )
 
 
-# --------------------------------------------------------------------------
+
 # Backend erişimi
-# --------------------------------------------------------------------------
+
 @st.cache_resource(show_spinner="ATLAS hazırlanıyor (embedding modeli yükleniyor)...")
 def get_pipeline() -> RagPipeline:
     return RagPipeline()
@@ -218,9 +218,9 @@ def get_system_status() -> dict:
     return status
 
 
-# --------------------------------------------------------------------------
+
 # Sidebar
-# --------------------------------------------------------------------------
+
 def render_sidebar() -> None:
     with st.sidebar:
         st.markdown(f'<p class="atlas-sidebar-title">{ASSISTANT_SYMBOL} ATLAS</p>', unsafe_allow_html=True)
@@ -258,9 +258,9 @@ def render_sidebar() -> None:
         st.markdown(status_row("RAG Pipeline", pipeline_ok), unsafe_allow_html=True)
 
 
-# --------------------------------------------------------------------------
+
 # Welcome screen
-# --------------------------------------------------------------------------
+
 def render_welcome_screen() -> str | None:
     st.markdown(
         f"""
@@ -282,9 +282,9 @@ def render_welcome_screen() -> str | None:
     return clicked_question
 
 
-# --------------------------------------------------------------------------
-# Mesaj / kaynak render
-# --------------------------------------------------------------------------
+
+# Mesaj - kaynak render
+
 def render_message(role: str, content: str) -> None:
     symbol = ASSISTANT_SYMBOL if role == "assistant" else USER_SYMBOL
     name = "ATLAS" if role == "assistant" else "USER"
@@ -351,9 +351,9 @@ def render_thinking_placeholder(placeholder) -> None:
     )
 
 
-# --------------------------------------------------------------------------
+
 # Soru işleme
-# --------------------------------------------------------------------------
+
 def handle_question(question: str) -> None:
     st.session_state.chat_history.append({"role": "user", "content": question})
 
@@ -387,9 +387,8 @@ def handle_question(question: str) -> None:
     st.rerun()
 
 
-# --------------------------------------------------------------------------
 # Main
-# --------------------------------------------------------------------------
+
 def main() -> None:
     inject_css()
 
