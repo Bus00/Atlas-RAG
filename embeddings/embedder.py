@@ -7,7 +7,7 @@ wrapper. sentence-transformers kütüphanesi üzerinden çalışır — model il
 `~/.cache/huggingface` içinde saklanır ve tamamen offline kullanılabilir.
 
 Neden bge-m3:
-  - Gerçekten çok dilli (100+ dil) ve Türkçe + İngilizce + Endonezce
+  - Çok dilli (100+ dil) ve Türkçe + İngilizce + Endonezce
     karışık metinlerde (bu projenin verisi tam olarak böyle) iyi performans
     gösteriyor.
   - Apache 2.0 lisanslı, ücretsiz, ticari kullanıma uygun.
