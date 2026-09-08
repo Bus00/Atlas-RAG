@@ -305,26 +305,26 @@ def render_sources(sources, used_structured: bool, structured_source=None) -> No
         return
     with st.expander(f"Sources ({len(sources)}{' + structured lookup' if used_structured else ''})"):
         if used_structured:
-         if structured_source:
-          st.markdown(
-            f"""
-            <div class="atlas-source-item">
-                <strong>[Structured lookup]</strong>
-                <span class="atlas-source-meta"> · PostgreSQL · Noon Report</span>
-                <div class="atlas-source-text">
-                    MT IVANI — {structured_source.get("year", "")}/{structured_source.get("month", "")}
-                    · BBM Consumption: {structured_source.get("bbm_consumption", "")} L
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        else:
-         st.markdown(
-            '<div class="atlas-source-item"><strong>[Structured lookup]</strong> '
-            "Matching Noon Report ROB/Consumption record (PostgreSQL)</div>",
-            unsafe_allow_html=True,
-        )
+            if structured_source:
+                st.markdown(
+                    f"""
+                    <div class="atlas-source-item">
+                        <strong>[Structured lookup]</strong>
+                        <span class="atlas-source-meta"> · PostgreSQL · Noon Report</span>
+                        <div class="atlas-source-text">
+                            MT IVANI — {structured_source.get("year", "")}/{structured_source.get("month", "")}
+                            · BBM Consumption: {structured_source.get("bbm_consumption", "")} L
+                        </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.markdown(
+                    '<div class="atlas-source-item"><strong>[Structured lookup]</strong> '
+                    "Matching Noon Report ROB/Consumption record (PostgreSQL)</div>",
+                    unsafe_allow_html=True,
+                )
         for s in sources:
             equipment = f" · equipment: {s.equipment_hint}" if s.equipment_hint else ""
             st.markdown(
