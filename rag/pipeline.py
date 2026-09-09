@@ -34,8 +34,20 @@ from retrieval.structured_lookup import (
     looks_like_monthly_structured_query,
     looks_like_structured_query,
 )
+from routing.domain_router import Domain, classify_domain
 
 NO_INFO_MESSAGE = "Bu bilgi mevcut veri kaynaklarında bulunamadı."
+
+# V2 Faz 2: tıbbi karar destek modülü (klinik değerlendirme, ilaç güvenliği vb.)
+# henüz implemente edilmedi (bkz. Faz 3+). Bu yüzden MEDICAL/BOTH olarak
+# yönlendirilen sorularda mevcut denizcilik RAG akışını (yanlış/anlamsız bir
+# cevap üretebilecek) hiç çalıştırmıyoruz -- bunun yerine açıkça "henüz
+# kullanılamıyor" diyoruz. "No fake implementation" ilkesi gereği.
+MEDICAL_NOT_YET_AVAILABLE_MESSAGE = (
+    "Bu soru tıbbi bir konuyla ilgili görünüyor. ATLAS'ın tıbbi karar destek "
+    "modülü (klinik değerlendirme, ilaç güvenliği vb.) şu anda geliştirme "
+    "aşamasındadır ve bu sürümde kullanılamamaktadır."
+)
 
 # Benzerlik mesafesi (cosine distance) bu eşiğin üzerindeyse, chunk "alakasız"
 # kabul edilir ve context'e dahil edilmez. bge-m3 + cosine için 0.55 makul bir
@@ -100,6 +112,7 @@ class RagAnswer:
     used_structured_lookup: bool = False
     llm_was_called: bool = True
     structured_source: dict | None = None
+    domain: Domain | None = None  # V2 Faz 2: izlenebilirlik -- hangi domain'e yönlendirildiği
 
 
 def _build_prompt(question: str, chunks: list[RetrievedChunk]) -> str:
@@ -143,6 +156,22 @@ class RagPipeline:
         self._llm = llm_client or OllamaClient()
 
     def answer(self, question: str, top_k: int | None = None) -> RagAnswer:
+        domain = classify_domain(question)
+
+        # V2 Faz 2: MEDICAL/BOTH sorularını, henüz var olmayan bir tıbbi
+        # cevap üretmeye çalışmak yerine (ki bu ya NO_INFO_MESSAGE'a düşer
+        # ya da denizcilik context'iyle anlamsız bir cevaba yol açabilir),
+        # burada açıkça durduruyoruz. Mevcut MARITIME/GENERAL akışı bu
+        # kapının altında hiç değişmeden devam ediyor.
+        if domain in (Domain.MEDICAL, Domain.BOTH):
+            return RagAnswer(
+                answer=MEDICAL_NOT_YET_AVAILABLE_MESSAGE,
+                sources=[],
+                used_structured_lookup=False,
+                llm_was_called=False,
+                domain=domain,
+            )
+
         if looks_like_monthly_structured_query(question):
             monthly_fact = lookup_monthly_consumption(question)
 
@@ -157,6 +186,7 @@ class RagPipeline:
                     used_structured_lookup=True,
                     llm_was_called=False,
                     structured_source=monthly_fact,
+                    domain=domain,
                 )
 
         if looks_like_structured_query(question):
@@ -169,6 +199,7 @@ class RagPipeline:
                     sources=[],
                     used_structured_lookup=True,
                     llm_was_called=False,
+                    domain=domain,
                 )
 
         chunks = self._retriever.retrieve(question, top_k=top_k)
@@ -180,7 +211,7 @@ class RagPipeline:
                 sources=[],
                 used_structured_lookup=False,
                 llm_was_called=False,
-            
+                domain=domain,
             )
 
         prompt = _build_prompt(question, relevant_chunks)
@@ -193,6 +224,7 @@ class RagPipeline:
                 sources=relevant_chunks,
                 used_structured_lookup=False,
                 llm_was_called=False,
+                domain=domain,
             )
 
         if not llm_answer:
@@ -203,5 +235,6 @@ class RagPipeline:
             sources=relevant_chunks,
             used_structured_lookup=False,
             llm_was_called=True,
+            domain=domain,
         )
         
