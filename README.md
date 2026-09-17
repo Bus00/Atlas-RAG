@@ -267,3 +267,53 @@ V1 kapsamında yer almayan özellikler ve modüller, projenin ilerleyen versiyon
   MT IVANI gemisine ait Ocak–Ağustos 2021 dönemindeki noon report verileri tercih edilmiştir.
   Bu doğrultuda V1, mevcut verilerin sağladığı imkânlar doğrultusunda denizcilik sektörüne odaklanılarak geliştirilmiştir. 
   Projenin kapsamı ve kullanım alanları ilerleyen versiyonlarda zaman içerisinde genişletilecektir.
+
+
+## V2 — Medical Decision Support
+The V2 architecture expands ATLAS to support medical information alongside maritime operational data.
+The medical layer includes:
+Patient information
+Observations and vital signs
+Laboratory values
+Allergies and current medications
+Medical inventory
+Rule-based safety checks
+Medication-related checks
+RAG-based information retrieval
+Structured medical timeline and assessment
+The system combines structured data, rule-based checks and local RAG to help organize and evaluate available information in resource-constrained environments.
+Offline-first approach
+ATLAS is designed for environments where reliable internet access may not be available, including:
+Disaster and emergency areas
+Remote or isolated locations
+Ships and offshore environments
+Conflict-affected environments
+Other resource-constrained settings
+Required models and dependencies are downloaded during setup. After installation, the core retrieval and LLM workflow can run locally without requiring an internet connection.
+
+## V2 Architecture
+                         ATLAS
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+         MARITIME                     MEDICAL
+             │                           │
+       Noon Reports             Patient / Lab / Vital
+             │                           │
+             └─────────────┬─────────────┘
+                           │
+                   Structured Data
+                           │
+                    Retrieval Layer
+                    ┌──────┴──────┐
+                    │             │
+               PostgreSQL     ChromaDB
+                    │             │
+                    └──────┬──────┘
+                           │
+                      Local LLM
+                    Qwen2.5-7B
+                           │
+                      ATLAS UI
+                       Streamlit
+V2 is an extension of the original V1 architecture. The complete V1 maritime implementation and setup instructions are documented below.
